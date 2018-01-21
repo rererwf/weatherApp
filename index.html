@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+        <title>weather</title>
+        <link rel="stylesheet" href="css/index.css">
+        <script src="js/rem.js"></script>
+        <script src="font/iconfont.js"></script>
+        <script src="js/jquery3.2.1.min.js"></script>
+        <script src="js/index.js"></script>
+        <link rel="shortcut icon" href="img/logo.png">
+    </head>
+    <style type="text/css">
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+</style>
+    <body>
+    <!-- 屏幕 -->
+    <div class="screen">
+    	<div class="header"></div>
+       <div class="box">
+  	      <h2>空气</h2>
+  	      <h3></h3>
+       </div>
+      <div class="weidu"></div>
+      <div class="xianshi"></div>
+      <div class="xianshiTwo">湿度&nbsp;28%</div>
+      <div class="xianshiT">天冷了，注意保暖~</div>
+    </div>
+    <div class="con1">
+      <div class="content">
+        <div class="top">
+          <span class="day">今天</span>
+          <div class="temperature">
+            <span class="high" id="dat_high_temperature"></span>/
+            <span class="low" id="dat_low_temperature"></span>℃
+          </div>
+        </div>
+        <div class="bottom">
+          <span class="weather" id="day_condition"></span>
+          <div class="pic" id="dat_weather_icon_id"></div>
+        </div>
+      </div>
+      <div class="content">
+        <div class="top">
+          <span class="day">明天</span>
+          <div class="temperature">
+            <span class="high" id="tomorrow_high_temperature"></span>/
+            <span class="low" id="tomorrow_low_temperature"></span>℃
+          </div>
+        </div>
+        <div class="bottom">
+          <span class="weather" id="tomorrow_condition"></span>
+          <div class="pic" id="tomorrow_weather_icon_id"></div>
+        </div>
+      </div>
+      </div>
+    
+    <div class="con2">
+      <div class="wrap" id="now">
+        <!--<div class="now">
+          <div class="now_time">12:00</div>
+          <div class="now_icon"></div>
+          <div class="now_temperature">-1°</div>
+        </div>-->
+      </div>
+    </div>
+    <div class="con3">
+      <div class="wrap" id="recent">
+       <!-- <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>
+         <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>
+         <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>
+         <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>
+         <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>
+         <div class="recent">
+          <div class="recent_time">
+            <span class="month">01</span>/
+            <span class="day">15</span>
+          </div>
+            <h2 class="recent_wea">多云</h2>
+            <div class="recent_pic"></div>
+            <h3 class="high">2°</h3>
+            <h4 class="recent_low">-13°</h4>
+            <h5 class="recent_wind">西北风</h5>
+            <h6 class="level">2级</h6>
+         </div>-->
+      </div>
+    </div>
+    <div class="city_box" style="display: none">
+      <div class="sousuo_box">
+        <div class="search">
+          <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-iconsmallsearch"></use>
+          </svg>
+          <input type="text" placeholder="搜索市、区、县" class="text">
+        </div>
+        <div class="button">取消</div>
+      </div>
+
+      <div class="citybox" id="city">
+       <!--  <h1 class="biaoti">热门城市</h1> -->
+      <!--   <div class="con">
+          <div class="son">北京</div>
+          <div class="son">上海</div>
+          <div class="son">广州</div>
+          <div class="son">深圳</div>
+          <div class="son">郑州</div>
+          <div class="son">西安</div>
+          <div class="son">南京</div>
+          <div class="son">杭州</div>
+          <div class="son">武汉</div>
+          <div class="son">成都</div>
+          <div class="son">沈阳</div>
+          <div class="son">天津</div>
+        </div> -->
+      </div>
+    </div>
+    </body>
+</html>
+<!-- 修改视口 
+引入rem.js
+
+-->
